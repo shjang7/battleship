@@ -48,15 +48,16 @@ const gameBoard = (ships) => {
       occupied = _.range(col, col + ship.length).some(
         c => board[row][c] === status.fill
       );
-      connected = (col - 1 >= 0 && board[row][col - 1] === status.fill) ||
-			(col + 1 < board[0].length && board[row][col + 1] === status.fill);
+      connected =
+        (col - 1 >= 0 && board[row][col - 1] === status.fill) ||
+        (col + 1 < board[0].length && board[row][col + 1] === status.fill);
     } else {
       occupied = _.range(row, row + ship.length).some(
         r => board[r][col] === status.fill
       );
       connected =
-			(col - 1 >= 0 && board[row][col - 1] === status.fill) ||
-			(col + 1 < board[0].length && board[row][col + 1] === status.fill);
+        (col - 1 >= 0 && board[row][col - 1] === status.fill) ||
+        (col + 1 < board[0].length && board[row][col + 1] === status.fill);
     }
     return !occupied && !connected;
   };
@@ -64,7 +65,7 @@ const gameBoard = (ships) => {
   const placeShip = (ship) => {
     let place = false;
     while (!place) {
-      const direction = _.raandom(0, 1) === 0 ? 'h' : 'v';
+      const direction = _.random(0, 1) === 0 ? 'h' : 'v';
       const { row, col } = setCoordination(ship, direction);
       if (!placeable({ ship, direction, row, col })) continue;
       if (direction === 'h') {

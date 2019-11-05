@@ -10,7 +10,7 @@ describe('setCoordination', () => {
   });
 });
 
-describe('hit', 'isSunk', () => {
+describe('hit, isSunk', () => {
   test('Ship is damaged', () => {
     [0, 1, 2].forEach(i => battleship.hit(i));
     expect(battleship.isSunk()).toBeFalsy();
