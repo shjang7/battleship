@@ -1,0 +1,9 @@
+linters:
+  flake8:
+  eslint:
+    config: './eslint.config'
+  stylelint:
+files:
+  ignore:
+    - 'dist/main.js'
+    - '.eslintrc.json'

@@ -1,0 +1,45 @@
+{
+  "name": "battleship",
+  "version": "1.0.0",
+  "description": "",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "start": "npm run watch:build",
+    "test": "jest",
+    "build": "webpack --progress --mode=development",
+    "watch:build": "webpack --progress --watch --mode=development",
+    "watch:test": "jest --watch src/*",
+    "server": "webpack-dev-server --open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shjang7/battleship.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.6.3",
+    "@babel/preset-env": "^7.6.3",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-loader": "^8.0.6",
+    "babel-polyfill": "^6.26.0",
+    "eslint": "^6.5.1",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.18.2",
+    "jest": "^24.9.0",
+    "prettier-eslint": "^9.0.0",
+    "regenerator-runtime": "^0.13.3",
+    "webpack": "^4.20.2",
+    "webpack-cli": "^3.3.9",
+    "webpack-dev-server": "^3.8.1"
+  },
+  "dependencies": {
+    "lodash": "^4.17.15"
+  },
+  "bugs": {
+    "url": "https://github.com/shjang7/battleship/issues"
+  },
+  "homepage": "https://github.com/shjang7/battleship#readme"
+}
