@@ -26,7 +26,32 @@
     <title>Battleship</title>
   </head>
   <body>
-    <div class="container"></div>
+    <div class="container">
+      <h1 class="winner text-align-center"></h1>
+      <div class="row">
+        <div class="col-md-6">
+          <h2 class="header">Human attack</h2>
+          <div class="board human-board"></div>
+        </div>
+        <div class="reset-cover">
+          <i class="fas fa-undo reset"></i>
+        </div>
+        <div class="col-md-6">
+          <h2 class="header">Computer attack</h2>
+          <div class="board computer-board"></div>
+        </div>
+      </div>
+      <div class="description animateOnce">
+        <h3 class="header">Attack ships!</h3>
+        <p>
+          Aircraft carrier - 5 <br />
+          Battleship - 4 <br />
+          Cruiser - 3 <br />
+          Submarine - 3 <br />
+          Destroyer - 2 <br />
+        </p>
+      </div>
+    </div>
     <script src="main.js"></script>
   </body>
 </html>
