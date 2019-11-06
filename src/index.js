@@ -9,9 +9,9 @@ const mainInterface = (() => {
   const ai = player('Computer');
   let turn;
   let myBoard;
-  let enemyBoard;
+  let opponentBoard;
 
-  const enemyShips = {
+  const opponentShips = {
     carrier: ship(5),
     battleship: ship(4),
     cruiser: ship(3),
@@ -36,13 +36,13 @@ const mainInterface = (() => {
 
   const reset = (initial) => {
     turn = human;
-    enemyBoard = gameBoard(Object.values(enemyShips));
+    opponentBoard = gameBoard(Object.values(opponentShips));
     myBoard = gameBoard(Object.values(myShips));
-    locateShips(enemyShips, enemyBoard);
+    locateShips(opponentShips, opponentBoard);
     locateShips(myShips, myBoard);
 
     if (initial) {
-      userInterface.createBoard(enemyBoard.board, 'human');
+      userInterface.createBoard(opponentBoard.board, 'human');
       userInterface.createBoard(myBoard.board, 'computer');
       userInterface.createClickBoard(humanPlay);
     }
@@ -58,7 +58,7 @@ const mainInterface = (() => {
       hit = myBoard.receiveAttack(row, col);
     } else {
       button = userInterface.getHumanBlock(row, col);
-      hit = enemyBoard.receiveAttack(row, col);
+      hit = opponentBoard.receiveAttack(row, col);
     }
     userInterface.changeButton(button, hit);
     if (hit && hit.sunk) {
@@ -81,7 +81,7 @@ const mainInterface = (() => {
   };
 
   const gamePlay = (hit) => {
-    if (enemyBoard.isAllSunk() || myBoard.isAllSunk()) {
+    if (opponentBoard.isAllSunk() || myBoard.isAllSunk()) {
       userInterface.revealWinner(turn);
       userInterface.blockCellClicks();
     } else if (turn === human && !hit) {

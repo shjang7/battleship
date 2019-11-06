@@ -5,7 +5,7 @@ const gameBoard = (ships) => {
     miss: -1,
     empty: 0,
     fill: 1,
-    damaged: 2,
+    destroyed: 2,
   };
 
   const board = Array.from(Array(10), () => Array(10).fill(status.empty));
@@ -21,6 +21,7 @@ const gameBoard = (ships) => {
     });
     return attacked;
   };
+
   const attackShips = (shot) => {
     let sunkShipCoord;
     ships.some((ship) => {
@@ -37,7 +38,7 @@ const gameBoard = (ships) => {
   const receiveAttack = (r, c) => {
     if (board[r][c] === status.fill) {
       const sunk = attackShips([r, c]);
-      board[r][c] = status.damaged;
+      board[r][c] = status.destroyed;
       return { sunk, hit: !sunk };
     }
     board[r][c] = status.miss;
@@ -52,25 +53,52 @@ const gameBoard = (ships) => {
     return { row: ortho, col: major };
   };
 
-  const placeable = ({ ship, direction, row, col }) => {
+  const located = ({ shipLength, direction, row, col }) => {
     let occupied;
-    let connected;
+
     if (direction === 'h') {
-      occupied = _.range(col, col + ship.length).some(
+      occupied = _.range(col, col + shipLength.length).some(
         c => board[row][c] === status.fill
       );
-      connected =
-        (col - 1 >= 0 && board[row][col - 1] === status.fill) ||
-        (col + 1 < board[0].length && board[row][col + 1] === status.fill);
     } else {
-      occupied = _.range(row, row + ship.length).some(
+      occupied = _.range(row, row + shipLength.length).some(
         r => board[r][col] === status.fill
       );
-      connected =
-        (col - 1 >= 0 && board[row][col - 1] === status.fill) ||
-        (col + 1 < board[0].length && board[row][col + 1] === status.fill);
     }
-    return !occupied && !connected;
+    return occupied;
+  };
+
+  const lowerColumnAttached = (row, col) =>
+    col - 1 >= 0 && board[row][col - 1] === status.fill;
+
+  const upperColumnAttached = (row, col) =>
+    col + 1 < board[0].length && board[row][col + 1] === status.fill;
+
+  const lowerRowAttached = (row, col) =>
+    row - 1 >= 0 && board[row - 1][col] === status.fill;
+
+  const upperRowAttached = (row, col) =>
+    row + 1 < board[0].length && board[row + 1][col] === status.fill;
+
+  const cohension = ({ shipLength, direction, row, col }) => {
+    let connected;
+    if (direction === 'h') {
+      connected =
+			lowerColumnAttached(row, col) ||
+			upperColumnAttached(row, col + shipLength - 1) ||
+
+			_.range(col, col + shipLength).some(
+			  c => lowerRowAttached(row, c) || upperRowAttached(row, c)
+			);
+    } else {
+      connected =
+			lowerRowAttached(row, col) ||
+			upperRowAttached(row + shipLength - 1, col) ||
+			_.range(row, row + shipLength).some(
+			  r => lowerColumnAttached(r, col) || upperColumnAttached(r, col)
+			);
+    }
+    return connected;
   };
 
   const placeShip = (ship) => {
@@ -78,7 +106,14 @@ const gameBoard = (ships) => {
     while (!place) {
       const direction = _.random(0, 1) === 0 ? 'h' : 'v';
       const { row, col } = setCoordination(ship, direction);
-      if (!placeable({ ship, direction, row, col })) continue;
+      const shipLength = ship.length;
+      if (
+        located({ shipLength, direction, row, col }) ||
+        cohension({ shipLength, direction, row, col })
+      ) {
+        continue;
+      }
+      if (!located({ ship, direction, row, col })) continue;
       if (direction === 'h') {
         _.range(col, col + ship.length).forEach((c, i) => {
           board[row][c] = status.fill;
