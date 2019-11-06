@@ -57,11 +57,11 @@ const gameBoard = (ships) => {
     let occupied;
 
     if (direction === 'h') {
-      occupied = _.range(col, col + shipLength.length).some(
+      occupied = _.range(col, col + shipLength).some(
         c => board[row][c] === status.fill
       );
     } else {
-      occupied = _.range(row, row + shipLength.length).some(
+      occupied = _.range(row, row + shipLength).some(
         r => board[r][col] === status.fill
       );
     }
@@ -84,19 +84,18 @@ const gameBoard = (ships) => {
     let connected;
     if (direction === 'h') {
       connected =
-			lowerColumnAttached(row, col) ||
-			upperColumnAttached(row, col + shipLength - 1) ||
-
-			_.range(col, col + shipLength).some(
-			  c => lowerRowAttached(row, c) || upperRowAttached(row, c)
-			);
+        lowerColumnAttached(row, col) ||
+        upperColumnAttached(row, col + shipLength - 1) ||
+        _.range(col, col + shipLength).some(
+          c => lowerRowAttached(row, c) || upperRowAttached(row, c)
+        );
     } else {
       connected =
-			lowerRowAttached(row, col) ||
-			upperRowAttached(row + shipLength - 1, col) ||
-			_.range(row, row + shipLength).some(
-			  r => lowerColumnAttached(r, col) || upperColumnAttached(r, col)
-			);
+        lowerRowAttached(row, col) ||
+        upperRowAttached(row + shipLength - 1, col) ||
+        _.range(row, row + shipLength).some(
+          r => lowerColumnAttached(r, col) || upperColumnAttached(r, col)
+        );
     }
     return connected;
   };
@@ -113,7 +112,6 @@ const gameBoard = (ships) => {
       ) {
         continue;
       }
-      if (!located({ ship, direction, row, col })) continue;
       if (direction === 'h') {
         _.range(col, col + ship.length).forEach((c, i) => {
           board[row][c] = status.fill;
