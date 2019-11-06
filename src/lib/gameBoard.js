@@ -5,31 +5,42 @@ const gameBoard = (ships) => {
     miss: -1,
     empty: 0,
     fill: 1,
-    destroyed: 2,
+    damaged: 2,
   };
+
   const board = Array.from(Array(10), () => Array(10).fill(status.empty));
 
   const isAllSunk = () => ships.every(ship => ship.isSunk());
 
-  const attackShipUnit = (ship, compare) => {
-    ship.coordinates.some((original, n) => {
-      if ([0, 1].every(x => original[x] === compare[x])) ship.hit(n);
+  const attackShipUnit = (ship, shot) => {
+    const attacked = ship.coordinates.some((original, n) => {
+      if ([0, 1].every(x => original[x] === shot[x])) {
+        ship.hit(n);
+        return true;
+      }
     });
+    return attacked;
   };
-  const attackShips = (compare) => {
-    ships.some(ship => attackShipUnit(ship, compare));
+  const attackShips = (shot) => {
+    let sunkShipCoord;
+    ships.some((ship) => {
+      if (attackShipUnit(ship, shot)) {
+        if (ship.isSunk()) {
+          sunkShipCoord = ship.coordinates;
+        }
+        return true;
+      }
+    });
+    return sunkShipCoord;
   };
 
   const receiveAttack = (r, c) => {
-    let attack = false;
     if (board[r][c] === status.fill) {
-      attackShips([r, c]);
-      attack = true;
-      board[r][c] = status.destroyed;
-    } else if (board[r][c] === status.empty) {
-      board[r][c] = status.miss;
+      const sunk = attackShips([r, c]);
+      board[r][c] = status.damaged;
+      return { sunk, hit: !sunk };
     }
-    return attack;
+    board[r][c] = status.miss;
   };
 
   const setCoordination = (ship, direction) => {

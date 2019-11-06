@@ -9,6 +9,8 @@ const myShips = {
   destroyer: ship(2),
 };
 
+const status = { hit: 1 };
+
 const myBoard = gameBoard(Object.values(myShips));
 Object.values(myShips).forEach((ship) => {
   myBoard.placeShip(ship);
@@ -22,7 +24,7 @@ describe('placeShip', () => {
       0
     );
     myBoard.board.forEach((line) => {
-      sum += line.filter(cell => cell === 1).length;
+      sum += line.filter(cell => cell === status.hit).length;
     });
     expect(sum).toBe(goal);
   });

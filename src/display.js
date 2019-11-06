@@ -64,6 +64,12 @@ const userInterface = (() => {
     }
   };
 
+  const changeButtonSunk = ([r, c], computer) => {
+    const button = computer ? getComputerBlock(r, c) : getHumanBlock(r, c);
+    button.classList.remove('hit');
+    button.classList.add('sunk');
+  };
+
   const blockCellClicks = () => {
     document.querySelectorAll('button.box').forEach((button) => {
       button.disabled = true;
@@ -74,6 +80,7 @@ const userInterface = (() => {
     document.querySelectorAll('button.box').forEach((e) => {
       e.classList.remove('hit');
       e.classList.remove('miss');
+      e.classList.remove('sunk');
       e.classList.add('empty');
       e.disabled = false;
     });
@@ -132,6 +139,7 @@ const userInterface = (() => {
     clearBoard,
     revealWinner,
     hideWinner,
+    changeButtonSunk,
   };
 })();
 

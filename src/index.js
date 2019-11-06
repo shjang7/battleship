@@ -61,6 +61,11 @@ const mainInterface = (() => {
       hit = enemyBoard.receiveAttack(row, col);
     }
     userInterface.changeButton(button, hit);
+    if (hit && hit.sunk) {
+      hit.sunk.forEach((coord) => {
+        userInterface.changeButtonSunk(coord, computer);
+      });
+    }
     gamePlay(hit);
   };
 
