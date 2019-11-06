@@ -1,4 +1,3 @@
-/* eslint-disable no-mixed-spaces-and-tabs */
 const userInterface = (() => {
   const createElement = ({ tag, id, classes, text }) => {
     const obj = document.createElement(tag);
@@ -6,12 +5,12 @@ const userInterface = (() => {
       obj.id = id;
     }
     if (classes) {
-		  classes.split(' ').forEach((e) => {
+      classes.split(' ').forEach((e) => {
         obj.classList.add(e);
-		  });
+      });
     }
     if (text) {
-		  obj.innerHTML = text;
+      obj.innerHTML = text;
     }
     return obj;
   };
@@ -59,9 +58,9 @@ const userInterface = (() => {
     button.disabled = true;
     button.classList.remove('empty');
     if (hit) {
-      button.classList.add('hit', 'animatedOnce');
+      button.classList.add('hit', 'animateOnce');
     } else {
-      button.classList.add('miss', 'animatedOnce');
+      button.classList.add('miss', 'animateOnce');
     }
   };
 

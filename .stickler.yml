@@ -6,4 +6,5 @@ linters:
 files:
   ignore:
     - 'dist/main.js'
+    - 'jest.config.js'
     - '.eslintrc.json'
