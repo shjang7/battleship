@@ -1,4 +1,3 @@
-/* eslint-disable no-mixed-spaces-and-tabs */
 const userInterface = (() => {
   const createElement = ({ tag, id, classes, text }) => {
     const obj = document.createElement(tag);
@@ -6,12 +5,12 @@ const userInterface = (() => {
       obj.id = id;
     }
     if (classes) {
-		  classes.split(' ').forEach((e) => {
+      classes.split(' ').forEach((e) => {
         obj.classList.add(e);
-		  });
+      });
     }
     if (text) {
-		  obj.innerHTML = text;
+      obj.innerHTML = text;
     }
     return obj;
   };

@@ -26,6 +26,7 @@ const mainInterface = (() => {
     submarine: ship(3),
     destroyer: ship(2),
   };
+
   const locateShips = (ships, board) => {
     Object.values(ships).forEach((ship) => {
       ship.revokeStatus();
@@ -77,7 +78,7 @@ const mainInterface = (() => {
   const gamePlay = (hit) => {
     if (enemyBoard.isAllSunk() || myBoard.isAllSunk()) {
       userInterface.revealWinner(turn);
-      userInterface.bloackCellClicks();
+      userInterface.blockCellClicks();
     } else if (turn === human && !hit) {
       turn = ai;
       computerPlay();
@@ -87,6 +88,7 @@ const mainInterface = (() => {
       turn = human;
     }
   };
+
   const setInit = () => {
     reset(1);
     userInterface.eventResetBoard(reset);
