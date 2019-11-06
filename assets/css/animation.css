@@ -1,0 +1,204 @@
+.animateOnce.winner {
+	-webkit-animation: splash 1s normal forwards ease-in-out;
+	-moz-animation: splash 1s normal forwards ease-in-out;
+	-o-animation: splash 1s normal forwards ease-in-out;
+	animation: splash 1s normal forwards ease-in-out;
+  }
+
+  .animateOnce.description {
+	-webkit-animation: from-mid-to-down 5s normal forwards ease-in-out;
+	-moz-animation: from-mid-to-down 5s normal forwards ease-in-out;
+	-o-animation: from-mid-to-down 5s normal forwards ease-in-out;
+	animation: from-mid-to-down 5s normal forwards ease-in-out;
+  }
+
+  .animateOnce.miss {
+	-webkit-animation: miss-splash 1s normal forwards ease-in-out;
+	-moz-animation: miss-splash 1s normal forwards ease-in-out;
+	-o-animation: miss-splash 1s normal forwards ease-in-out;
+	animation: miss-splash 1s normal forwards ease-in-out;
+  }
+
+  .animateOnce.hit {
+	-webkit-animation: hit-splash 500ms normal forwards ease-in-out;
+	-moz-animation: hit-splash 500ms normal forwards ease-in-out;
+	-o-animation: hit-splash 500ms normal forwards ease-in-out;
+	animation: hit-splash 500ms normal forwards ease-in-out;
+  }
+
+  .animateOnce.sunk {
+	-webkit-animation: sunk-splash 500ms normal forwards ease-in-out;
+	-moz-animation: sunk-splash 500ms normal forwards ease-in-out;
+	-o-animation: sunk-splash 500ms normal forwards ease-in-out;
+	animation: sunk-splash 500ms normal forwards ease-in-out;
+  }
+
+  @-webkit-keyframes from-mid-to-down {
+	from {
+	  width: calc(100% - 2rem);
+	  height: calc(100vh + 11rem);
+	  left: 0.5rem;
+	  margin-left: 0;
+	  top: 1rem;
+	}
+	80% {
+	  width: calc(100% - 2rem);
+	  height: calc(100vh + 11rem);
+	  left: 0.5rem;
+	  margin-left: 0;
+	  top: 1rem;
+	}
+  }
+
+  @keyframes from-mid-to-down {
+	from {
+	  width: calc(100% - 2rem);
+	  height: calc(100vh + 11rem);
+	  left: 0.5rem;
+	  margin-left: 0;
+	  top: 1rem;
+	}
+	80% {
+	  width: calc(100% - 2rem);
+	  height: calc(100vh + 11rem);
+	  left: 0.5rem;
+	  margin-left: 0;
+	  top: 1rem;
+	}
+  }
+
+  @-webkit-keyframes splash {
+	from {
+	  opacity: 0;
+	  transform: scale(0.8, 0.8);
+	}
+	50% {
+	  opacity: 1;
+	  transform: scale(1.2, 1.2);
+	}
+	to {
+	  transform: scale(1, 1);
+	}
+  }
+
+  @keyframes splash {
+	from {
+	  opacity: 0;
+	  transform: scale(0.8, 0.8);
+	}
+	50% {
+	  opacity: 1;
+	  transform: scale(1.2, 1.2);
+	}
+	to {
+	  transform: scale(1, 1);
+	}
+  }
+
+  @-webkit-keyframes miss-splash {
+	from {
+	  opacity: 0;
+	  transform: scale(0.8, 0.8) rotate(-360deg);
+	}
+	50% {
+	  opacity: 1;
+	  transform: scale(1.2, 1.2);
+	  z-index: 10;
+	}
+	to {
+	  transform: scale(1, 1);
+	  z-index: 0;
+	}
+  }
+
+  @keyframes miss-splash {
+	from {
+	  opacity: 0;
+	  transform: scale(0.8, 0.8) rotate(-360deg);
+	}
+	50% {
+	  opacity: 1;
+	  transform: scale(1.2, 1.2);
+	  z-index: 10;
+	}
+	to {
+	  transform: scale(1, 1);
+	  z-index: 0;
+	}
+  }
+
+  @-webkit-keyframes hit-splash {
+	from {
+	  background-color: #e2224c;
+	  transform: scale(0.8, 0.8) rotate(-360deg);
+	}
+	49% {
+	  background-color: #e2224c;
+	}
+	50% {
+	  background-color: red;
+	  transform: scale(1.4, 1.4);
+	  z-index: 10;
+	}
+	to {
+	  z-index: 5;
+	  transform: scale(1, 1);
+	}
+  }
+
+  @keyframes hit-splash {
+	from {
+	  background-color: #e2224c;
+	  transform: scale(0.8, 0.8) rotate(-360deg);
+	}
+	49% {
+	  background-color: #e2224c;
+	}
+	50% {
+	  background-color: red;
+	  transform: scale(1.4, 1.4);
+	  z-index: 10;
+	}
+	to {
+	  z-index: 5;
+	  transform: scale(1, 1);
+	}
+  }
+
+  @-webkit-keyframes sunk-splash {
+	from {
+	  background-color: red;
+	  transform: scale(1.2, 1.2);
+	  z-index: 10;
+	}
+	49% {
+	  background-color: red;
+	}
+	50% {
+	  background-color: #333;
+	  transform: scale(0, 0);
+	}
+	to {
+	  z-index: 5;
+	  transform: scale(1, 1) rotate(360deg);
+	}
+  }
+
+  @keyframes sunk-splash {
+	from {
+	  background-color: red;
+	  transform: scale(1.2, 1.2);
+	  z-index: 10;
+	}
+	49% {
+	  background-color: red;
+	}
+	50% {
+	  background-color: #333;
+	  transform: scale(0, 0);
+	}
+	to {
+	  z-index: 5;
+	  transform: scale(1, 1) rotate(360deg);
+	}
+  }

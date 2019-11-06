@@ -1,3 +1,4 @@
+/* eslint-disable no-mixed-spaces-and-tabs */
 const userInterface = (() => {
   const createElement = ({ tag, id, classes, text }) => {
     const obj = document.createElement(tag);
@@ -5,12 +6,12 @@ const userInterface = (() => {
       obj.id = id;
     }
     if (classes) {
-      classes.split(' ').forEach((e) => {
+		  classes.split(' ').forEach((e) => {
         obj.classList.add(e);
-      });
+		  });
     }
     if (text) {
-      obj.innerHTML = text;
+		  obj.innerHTML = text;
     }
     return obj;
   };
@@ -58,9 +59,9 @@ const userInterface = (() => {
     button.disabled = true;
     button.classList.remove('empty');
     if (hit) {
-      button.classList.add('hit');
+      button.classList.add('hit', 'animatedOnce');
     } else {
-      button.classList.add('miss');
+      button.classList.add('miss', 'animatedOnce');
     }
   };
 
@@ -124,6 +125,7 @@ const userInterface = (() => {
 
   const revealWinner = (turn) => {
     const winner = document.querySelector('.winner');
+    winner.classList.add('animateOnce');
     winner.innerHTML = `${turn} wins.`;
     winner.style.display = 'flex';
   };
