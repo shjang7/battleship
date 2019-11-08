@@ -1,0 +1,174 @@
+body {
+  font: 500 18px/1.2 'Cairo', sans-serif;
+}
+
+.empty {
+  background-color: white;
+}
+
+.miss {
+  background-color: #1ca3ec;
+}
+
+.hit {
+  background-color: red;
+}
+
+.sunk {
+  background-color: #333;
+}
+
+.container {
+  width: calc(100% - 2rem);
+  max-width: 1400px;
+  margin: 0.5rem auto 3rem;
+  padding-bottom: 13rem;
+}
+
+.text-align-center {
+  text-align: center;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(11, calc(100% / 11));
+  grid-template-rows: repeat(11, calc(100% / 11));
+}
+
+.box {
+  height: calc(calc(100vw - 2rem) / 11);
+}
+
+.board button {
+  border: 1px solid lightblue;
+}
+
+.col-md-6 .header {
+  text-align: center;
+  padding: 0.3rem;
+  border-radius: 0.3rem;
+  background-color: #72fcb7;
+}
+
+.col-md-6:first-child {
+  order: 1;
+}
+
+.col-md-6:last-child {
+  order: 2;
+}
+
+.board span {
+  line-height: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #72fcb7;
+}
+
+.winner {
+  display: none;
+  justify-content: center;
+  width: 16rem;
+  max-width: 100%;
+  padding-top: 0.3rem;
+  padding-bottom: 0.3rem;
+  background-color: #72fcb7;
+  border-radius: 2rem;
+  position: absolute;
+  z-index: 10;
+  top: 16rem;
+  left: 50%;
+  margin-left: -8rem;
+  border: 1rem solid #0ae7;
+}
+
+.description {
+  position: absolute;
+  left: 50%;
+  margin-left: -5rem;
+  top: calc(calc(calc(100vw - 2rem) * 2) + 18rem);
+  width: 10rem;
+  text-align: center;
+  line-height: 1.4;
+  padding: 0.5rem;
+  box-sizing: content-box;
+  background-color: #72fcb7;
+  border-radius: 0.5rem;
+}
+
+.reset-cover {
+  order: 0;
+  min-width: auto;
+  margin: 1rem;
+}
+
+.fa-undo {
+  font-size: 4rem;
+  cursor: pointer;
+}
+
+.row {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 780px) {
+  .container {
+    width: calc(100% - 3rem);
+    max-width: 780px;
+  }
+
+  .col-md-6 .header {
+    padding: 0.5rem;
+  }
+
+  .winner {
+    width: 20rem;
+    margin-left: -10rem;
+    height: 3rem;
+    top: 12rem;
+    display: none;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .description {
+    top: calc(calc(780px / 2) + 5rem);
+  }
+
+  .col-md-6 {
+    width: 50%;
+    display: inline-block;
+  }
+
+  .box {
+    height: calc(calc(calc(780px / 2) - 3rem) / 11);
+  }
+
+  .row {
+    flex-direction: row;
+  }
+
+  .col:first-child {
+    order: 0;
+  }
+
+  .reset-cover {
+    order: 1;
+  }
+
+  .col:last-child {
+    order: 2;
+  }
+}
+
+@media (min-width: 1400px) {
+  .container {
+    max-width: 1200px;
+  }
+
+  .box {
+    height: calc(600px / 11);
+  }
+}

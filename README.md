@@ -6,12 +6,17 @@ Find it at [here](https://www.theodinproject.com/courses/javascript/lessons/batt
 ## Technologies
 
 - Javascript: ECMAScript 2015 (es6)
+- jest test
 - HTML 5
 - CSS 3
 
+## Deployment
+
+- [Online Deployment](https://shjang7.github.io/battleship/dist/index.html)
+
 ## Contributors
 
-This is a collaborative project by us: [Suhyeon Jang](https://github.com/shjang7) [Grace Mugoiri](https://github.com/grace-mugoiri)
+This is a collaborative project by us: [Suhyeon Jang](https://github.com/shjang7) and [Grace Mugoiri](https://github.com/grace-mugoiri)
 
 ## Contributing
 
