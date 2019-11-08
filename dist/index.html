@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zxx">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=devise-width,height=device-height, initial-scale=1.0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Cairo&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="./../assets/css/normalize.css"
+    />
+    <link rel="stylesheet" type="text/css" href="./../assets/css/style.css" />
+    <link
+      rel="stylesheet"
+      href="./../assets/css/animation.css"
+      type="text/css"
+    />
+    <title>Battleship</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="winner text-align-center"></h1>
+      <div class="row">
+        <div class="col-md-6">
+          <h2 class="header">Human attack</h2>
+          <div class="board human-board"></div>
+        </div>
+        <div class="reset-cover">
+          <i class="fas fa-undo reset"></i>
+        </div>
+        <div class="col-md-6">
+          <h2 class="header">Computer attack</h2>
+          <div class="board computer-board"></div>
+        </div>
+      </div>
+      <div class="description animateOnce">
+        <h3 class="header">Attack ships!</h3>
+        <p>
+          Aircraft carrier - 5 <br />
+          Battleship - 4 <br />
+          Cruiser - 3 <br />
+          Submarine - 3 <br />
+          Destroyer - 2 <br />
+        </p>
+      </div>
+    </div>
+    <script src="main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,33 @@
+0. setup webpack, jest
+1. ship
+2. ship test
+3. gameBoard
+4. gameBoard test
+5. player
+6. index
+7. display
+8. html, css
+9. readme
+
+10x10 board,
+5,4,3,3,2 ships
+Carrier(5)
+Battleship(4)
+Cruiser(3)
+Submarine(3)
+Destroyer(2)
+
+Miss, Hit, Destroy
+
+< html >
+container
+  winner
+  row
+    col-md-6
+      (human attack)
+      board human-board
+    reset-cover
+      reset
+    col-md-6
+      (computer attack)
+      board computer-board

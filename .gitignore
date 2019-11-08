@@ -1,0 +1,3 @@
+/node_modules/*
+/remove/*
+npm-debug.log
