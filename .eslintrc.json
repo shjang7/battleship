@@ -62,6 +62,14 @@
     ],
     "indent": ["error", 2],
     "no-trailing-spaces": ["error", { "skipBlankLines": true }],
-    "no-console": ["error", { "allow": ["warn"] }]
+    "no-console": ["error", { "allow": ["warn"] }],
+    "no-confusing-arrow": ["error", { "allowParens": true }],
+    "no-useless-return": "error",
+    "no-unused-expressions": ["error", { "allowTernary": true }],
+    "operator-linebreak": [
+      "error",
+      "after",
+      { "overrides": { "?": "before", ":": "before" } }
+    ]
   }
 }
