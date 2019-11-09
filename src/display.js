@@ -71,7 +71,7 @@ const userInterface = (() => {
   };
 
   const blockCellClicks = () => {
-    document.querySelectorAll('button.box').forEach((button) => {
+    document.querySelectorAll('button.empty').forEach((button) => {
       button.disabled = true;
     });
   };
@@ -94,13 +94,32 @@ const userInterface = (() => {
     };
   };
 
-  const createClickBoard = (play) => {
+  const hideAlertPlaying = () => {
+    const playingInform = document.querySelector('.inform-computer-play');
+    playingInform.style.display = 'none';
+  };
+
+  const revealAlertPlaying = () => {
+    const playingInform = document.querySelector('.inform-computer-play');
+    playingInform.style.display = 'block';
+  };
+
+  const clickCell = (play, rightTurn, button) => {
+    if (rightTurn()) {
+      hideAlertPlaying();
+      const coord = parseCoord(button);
+      play(coord);
+    } else {
+      revealAlertPlaying();
+    }
+  };
+
+  const createClickBoard = (play, rightTurn) => {
     const showBoard = document.querySelector('.human-board');
     showBoard.childNodes.forEach((button) => {
       if (button.nodeName === 'BUTTON') {
         button.addEventListener('click', () => {
-          const coord = parseCoord(button);
-          play(coord);
+          clickCell(play, rightTurn, button);
         });
       }
     });
@@ -129,6 +148,12 @@ const userInterface = (() => {
     winner.style.display = 'flex';
   };
 
+  const reset = () => {
+    hideAlertPlaying();
+    hideWinner();
+    clearBoard();
+  };
+
   return {
     createBoard,
     changeButton,
@@ -137,10 +162,11 @@ const userInterface = (() => {
     eventResetBoard,
     getHumanBlock,
     getComputerBlock,
-    clearBoard,
     revealWinner,
-    hideWinner,
     changeButtonSunk,
+    reset,
+    revealAlertPlaying,
+    hideAlertPlaying,
   };
 })();
 

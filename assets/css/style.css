@@ -22,7 +22,7 @@ body {
   width: calc(100% - 2rem);
   max-width: 1400px;
   margin: 0.5rem auto 3rem;
-  padding-bottom: 13rem;
+  padding-bottom: 15rem;
 }
 
 .text-align-center {
@@ -76,18 +76,22 @@ body {
   background-color: #72fcb7;
   border-radius: 2rem;
   position: absolute;
-  z-index: 10;
+  z-index: 20;
   top: 16rem;
   left: 50%;
   margin-left: -8rem;
   border: 1rem solid #0ae7;
 }
 
+.inform-computer-play {
+  margin-top: 0.5rem;
+}
+
 .description {
   position: absolute;
   left: 50%;
   margin-left: -5rem;
-  top: calc(calc(calc(100vw - 2rem) * 2) + 18rem);
+  top: calc(calc(calc(100vw - 2rem) * 2) + 20rem);
   width: 10rem;
   text-align: center;
   line-height: 1.4;
@@ -134,7 +138,7 @@ body {
   }
 
   .description {
-    top: calc(calc(780px / 2) + 5rem);
+    top: calc(calc(780px / 2) + 6rem);
   }
 
   .col-md-6 {

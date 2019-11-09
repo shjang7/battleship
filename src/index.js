@@ -1,7 +1,7 @@
-import _ from 'lodash';
 import ship from './lib/ship';
 import gameBoard from './lib/gameBoard';
 import player from './lib/player';
+import aiMove from './lib/aiMove';
 import userInterface from './display';
 
 const mainInterface = (() => {
@@ -34,6 +34,8 @@ const mainInterface = (() => {
     });
   };
 
+  const turnHuman = () => turn === human;
+
   const reset = (initial) => {
     turn = human;
     opponentBoard = gameBoard(Object.values(opponentShips));
@@ -44,18 +46,22 @@ const mainInterface = (() => {
     if (initial) {
       userInterface.createBoard(opponentBoard.board, 'human');
       userInterface.createBoard(myBoard.board, 'computer');
-      userInterface.createClickBoard(humanPlay);
+      userInterface.createClickBoard(humanPlay, turnHuman);
     }
-    userInterface.hideWinner();
-    userInterface.clearBoard();
+    userInterface.reset();
   };
 
-  const afterPlay = ({ row, col, computer }) => {
+  const updateButton = (coord, computer) => {
+    const [row, col] = coord;
     let button;
     let hit;
     if (computer) {
       button = userInterface.getComputerBlock(row, col);
       hit = myBoard.receiveAttack(row, col);
+      if (hit) {
+        if (hit.sunk) ai.resetLastHit();
+        else ai.updateLastHit(row, col);
+      }
     } else {
       button = userInterface.getHumanBlock(row, col);
       hit = opponentBoard.receiveAttack(row, col);
@@ -66,31 +72,39 @@ const mainInterface = (() => {
         userInterface.changeButtonSunk(coord, computer);
       });
     }
+    return hit;
+  };
+
+  const afterPlay = (coord, computer) => {
+    const hit = updateButton(coord, computer);
     gamePlay(hit);
+    return hit;
   };
 
   const computerPlay = () => {
-    const spots = myBoard.getAvailableSpots();
-    const index = _.random(0, spots.length - 1);
-    const [row, col] = spots[index];
-    afterPlay({ row, col, computer: true });
+    const move = aiMove(myBoard.board);
+    const aiSpot = move.aiSpot(ai.lastHit.coord);
+    const random = move.randomSpot();
+    const coord = aiSpot && aiSpot.length > 0 ? aiSpot : random;
+    const hit = afterPlay(coord, true);
+    if (!hit) userInterface.hideAlertPlaying();
   };
 
   const humanPlay = ({ row, col }) => {
-    afterPlay({ row, col });
+    afterPlay([row, col], false);
   };
 
   const gamePlay = (hit) => {
     if (opponentBoard.isAllSunk() || myBoard.isAllSunk()) {
-      userInterface.revealWinner(turn);
+      userInterface.revealWinner(turn.type);
       userInterface.blockCellClicks();
     } else if (turn === human && !hit) {
       turn = ai;
       computerPlay();
     } else if (turn === ai && hit) {
-      computerPlay();
+      setTimeout(() => computerPlay(), 400);
     } else if (turn === ai && !hit) {
-      turn = human;
+      setTimeout(() => (turn = human), 400);
     }
   };
 

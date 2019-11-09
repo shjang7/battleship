@@ -40,15 +40,6 @@ describe('receiveAttack', () => {
   });
 });
 
-describe('getAvailableSpots', () => {
-  test('Left available size only minus attacked place for a ship', () => {
-    const sunkShip = Object.values(myShips)[0];
-    const leftSpots = myBoard.getAvailableSpots();
-    const boardLength = myBoard.board.length * myBoard.board[0].length;
-    expect(leftSpots.length).toBe(boardLength - sunkShip.length);
-  });
-});
-
 describe('isAllSunk', () => {
   test('A ship only sunk, but all ships are not sunk', () => {
     expect(myBoard.isAllSunk()).toBeFalsy();
