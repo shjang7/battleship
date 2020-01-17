@@ -1,18 +1,82 @@
-# battleship
+# Battleship
 
-This is a part of the Odin Project's Curriculum. <br />
-Find it at [here](https://www.theodinproject.com/courses/javascript/lessons/battleship).
+Battleship is a game app; it has two players those are computer vs human.<br />
+
+- When the game starts, the computer and human have each board with hidden located ships.<br />
+- The human player tries attacking one each time, miss-attack hits water which has water-colour.<br />
+- And human attacks the located ship, the hit ship has a red colour, and sunk ship changes dark-grey colour.<br />
+- If one of the players attacks all the ships, the player wins the game.<br />
+
+Ships
+- Aircraft carrier(5)
+- Battleship(4)
+- Cruiser(3)
+- Submarine(3)
+- Destroyer(2)
+
+This is a part of [the Odin Project](https://www.theodinproject.com/courses/javascript/lessons/battleship).
+
+![](./assets/images/screenshot.png)
 
 ## Technologies
 
 - Javascript: ECMAScript 2015 (es6)
-- jest test
+- Jest test
 - HTML 5
 - CSS 3
 
 ## Deployment
 
-- [Online Deployment](https://shjang7.github.io/battleship/dist/index.html)
+#### [Live Demo](https://shjang7.github.io/battleship/dist/index.html)
+
+## Getting started
+
+> Clone the repository to your local machine
+
+```
+$ git clone https://github.com/shjang7/battleship.git
+```
+
+> Change directory into the directory
+
+```
+$ cd battleship
+```
+
+> Install npm
+
+```
+$ npm install
+```
+
+> Test check no errors. When it passes, move on.
+
+```
+$ npm test
+```
+
+> Build codes
+
+```
+$ npm run build
+```
+
+> Open server
+
+```
+$ npm run server
+```
+
+> Go to execution file directory in your browser
+
+```
+./dist/index.html
+```
+
+> Read the game rule at first screen; the game rule will decrease the size after some moment.
+
+```
+```
 
 ## Contributors
 
