@@ -1,4 +1,4 @@
-# Battleship
+<h1 align="center">Welcome to Battleship 👋</h1>
 
 Battleship is a game app; it has two players those are computer vs human.<br />
 
@@ -7,14 +7,14 @@ Battleship is a game app; it has two players those are computer vs human.<br />
 - And human attacks the located ship, the hit ship has a red colour, and sunk ship changes dark-grey colour.<br />
 - If one of the players attacks all the ships, the player wins the game.<br />
 
-Ships
+##### Ships
 - Aircraft carrier(5)
 - Battleship(4)
 - Cruiser(3)
 - Submarine(3)
 - Destroyer(2)
 
-This is a part of [the Odin Project](https://www.theodinproject.com/courses/javascript/lessons/battleship).
+The main requirement is [here](https://www.theodinproject.com/courses/javascript/lessons/battleship).
 
 ![](./assets/images/screenshot.png)
 
@@ -27,7 +27,7 @@ This is a part of [the Odin Project](https://www.theodinproject.com/courses/java
 
 ## Deployment
 
-#### [Live Demo](https://shjang7.github.io/battleship/dist/index.html)
+### ✨ [Live Demo](https://shjang7.github.io/battleship/dist/)
 
 ## Getting started
 
@@ -80,9 +80,19 @@ $ npm run server
 
 ## Contributors
 
-This is a collaborative project by us: [Suhyeon Jang](https://github.com/shjang7) and [Grace Mugoiri](https://github.com/grace-mugoiri)
+👤 **Suhyeon Jang**
 
-## Contributing
+- Github: [@shjang7](https://github.com/shjang7)
+- LinkedIn: [@shjang](https://www.linkedin.com/in/shjang/)
+- Twitter: [@shjang12](https://twitter.com/shjang12)
+
+👤 **Grace Mugoiri**
+
+- Github: [@mugos](https://github.com/grace-mugoiri)
+- LinkedIn: [@grace-mugoiri](https://www.linkedin.com/in/grace-mugoiri-829019134/)
+- Twitter: [@GraciaMugoiri](https://twitter.com/GraciaMugoiri)
+
+## 🤝 Contributing
 
 1. Fork it (https://github.com/shjang7/battleship/fork)
 2. Create your feature branch (git checkout -b feature/[choose-a-name])
