@@ -7,7 +7,7 @@ Battleship is a game app; it has two players those are computer vs human.<br />
 - And human attacks the located ship, the hit ship has a red colour, and sunk ship changes dark-grey colour.<br />
 - If one of the players attacks all the ships, the player wins the game.<br />
 
-##### Ships
+#### Ships
 - Aircraft carrier(5)
 - Battleship(4)
 - Cruiser(3)
@@ -16,7 +16,7 @@ Battleship is a game app; it has two players those are computer vs human.<br />
 
 The main requirement is [here](https://www.theodinproject.com/courses/javascript/lessons/battleship).
 
-![](./assets/images/screenshot.png)
+![](./docs/screenshot.png)
 
 ## Technologies
 
@@ -70,7 +70,7 @@ $ npm run server
 > Go to execution file directory in your browser
 
 ```
-./dist/index.html
+./dist/
 ```
 
 > Read the game rule at first screen; the game rule will decrease the size after some moment.

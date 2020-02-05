@@ -1,5 +1,8 @@
 body {
   font: 500 18px/1.2 'Cairo', sans-serif;
+  background: #CAC531;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to top, #F3F9A7, #CAC531);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to top, #F3F9A7, #CAC531); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 .empty {
@@ -33,6 +36,7 @@ body {
   display: grid;
   grid-template-columns: repeat(11, calc(100% / 11));
   grid-template-rows: repeat(11, calc(100% / 11));
+  background-color: white;
 }
 
 .box {
